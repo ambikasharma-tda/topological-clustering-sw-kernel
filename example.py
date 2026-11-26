@@ -1,10 +1,8 @@
-"""Quick example: SW kernel k-means on the circle-sphere-torus data at one noise level.
+"""Example: SW kernel k-means on the circle-sphere-torus data at one noise level.
 
-Generates 10 circles, 10 spheres and 10 tori (100 points each) as in Cao et al. (2025),
+Generates 10 circles, 10 spheres and 10 tori (100 points each),
 computes the H0, H1, H2 Vietoris-Rips diagrams, and runs Algorithm 2.
-This is trial 1 of Section 4.2 at noise s = 1 (about 1 minute on a laptop).
 
-    python example.py
 """
 import numpy as np
 from sklearn.metrics import adjusted_rand_score
@@ -13,7 +11,6 @@ from swkmeans import rips_diagrams, sw_kernel_kmeans
 
 
 def make_point_clouds(n_per_class, n_points, noise):
-    """Circles, spheres and tori of Cao et al. (2025), each coordinate perturbed by Uniform[-noise/2, noise/2]."""
     def jitter(k):
         return noise * (np.random.rand(k) - 0.5)
     circles, spheres, tori = [], [], []
@@ -32,13 +29,12 @@ def make_point_clouds(n_per_class, n_points, noise):
 
 
 def minmax_normalise(cloud):
-    """Global min-max rescaling to [-1, 1]^3 with one scalar for all axes (Cao et al., 2025)."""
     mn, mx = cloud.min(), cloud.max()
     return ((cloud - mn) / (mx - mn if mx > mn else 1.0) - 0.5) * 2.0
 
 
 if __name__ == "__main__":
-    np.random.seed(0)                                   # trial t of the paper uses seed t
+    np.random.seed(0)                                  
     clouds, y = make_point_clouds(n_per_class=10, n_points=10, noise=1.0)
 
     print("computing persistence diagrams ...")
