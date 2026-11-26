@@ -5,10 +5,6 @@ degree q* (H0: two vs three blobs; H1: circle vs figure-eight; H2: sphere vs pun
 For every trial the weights of the convex combination of the H0, H1, H2 SW kernels are chosen
 by centred kernel-target alignment, and we check whether the largest weight lands on q*.
 
-    python weight_significance.py            # full run: 3 datasets x 7 noise levels x 50 trials
-    python weight_significance.py --quick    # short test: 5 trials, noise levels 0, 1 and 2
-
-The full run uses the seeds of the paper and reproduces Tables 8-11 (about 1.5 hours on Colab CPU).
 """
 import argparse
 import time
@@ -18,7 +14,7 @@ import numpy as np
 from swkmeans import alpha_diagrams, ripser_diagrams, keep_most_persistent, sw_grams_by_degree
 from swkmeans import simplex_grid, select_weights_by_alignment
 
-# ---------------- settings (Appendix B, Table 15) ----------------
+# ---------------- settings ----------------
 N_PER_CLASS = 10                          # clouds per class
 N_PTS       = {0: 120, 1: 120, 2: 300}    # points per cloud
 NOISE       = [0, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
@@ -73,7 +69,6 @@ SAMPLERS = {
 
 
 def preprocess(X, s, rng):
-    """Centre and divide by the global standard deviation, add Uniform[-s/2, s/2] noise, then rotate randomly."""
     X = (X - X.mean(0)) / (X.std() + 1e-9)
     X = X + s * rng.uniform(-0.5, 0.5, size=X.shape)
     d = X.shape[1]
