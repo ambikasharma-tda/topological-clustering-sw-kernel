@@ -1,4 +1,4 @@
-"""Weight-significance experiment (Section 4.6, Tables 8-11).
+"""Weight-significance experiment.
 
 Three two-class datasets S0, S1, S2 in which the class signal is planted in a single homology
 degree q* (H0: two vs three blobs; H1: circle vs figure-eight; H2: sphere vs punctured sphere).
