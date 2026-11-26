@@ -1,10 +1,5 @@
 # Topological Clustering via Sliced Wasserstein Kernels
 
-Code for the paper
-
-> Ambika Sharma, Vikram Aithal and Ajit Kumar. **Topological Clustering via Sliced Wasserstein Kernels.**
-> *Transactions on Machine Learning Research*, 2026. [OpenReview](https://openreview.net/forum?id=V418l9gQWy)
-
 The method clusters point clouds by their topology. For each cloud it computes the persistence
 diagrams of the homology degrees H0, H1, H2, builds one sliced Wasserstein (SW) kernel per degree,
 combines them as a convex combination
@@ -65,18 +60,3 @@ of Appendix B, Table 15.
 This repository contains the method and the weight-significance experiment. Scripts for the
 other experiments in the paper are available from the authors on request.
 
-## Citation
-
-```bibtex
-@article{sharma2026topological,
-  title   = {Topological Clustering via Sliced {W}asserstein Kernels},
-  author  = {Sharma, Ambika and Aithal, Vikram and Kumar, Ajit},
-  journal = {Transactions on Machine Learning Research},
-  year    = {2026},
-  url     = {https://openreview.net/forum?id=V418l9gQWy}
-}
-```
-
-## License
-
-MIT License. See `LICENSE`.
