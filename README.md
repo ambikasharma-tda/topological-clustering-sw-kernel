@@ -11,8 +11,7 @@ combines them as a convex combination
 
     K_lambda = lambda_0 K_H0 + lambda_1 K_H1 + lambda_2 K_H2,
 
-and runs kernel k-means on `K_lambda`. The weights are chosen without labels by the silhouette
-score in the kernel's feature space (Algorithm 2 of the paper).
+and runs kernel k-means on `K_lambda`. 
 
 ## Installation
 
