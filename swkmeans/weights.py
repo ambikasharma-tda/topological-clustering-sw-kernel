@@ -46,26 +46,7 @@ def kernel_silhouette(K, labels):
 
 
 def select_weights(grams, n_clusters, grid=None, step=0.1, n_init=10, max_iter=100, seed=0, y_true=None):
-    """Run kernel k-means for every weight vector on the grid and pick one.
-
-    Parameters
-    ----------
-    grams : list of Gram matrices K^(q), one per homology degree (from `sw_grams_by_degree`).
-    n_clusters : number of clusters.
-    grid : list of weight vectors; default `simplex_grid(len(grams), step)`.
-    y_true : optional true labels. If given, the ARI of every weight is also computed and the
-        oracle weight (highest ARI) is reported; the oracle uses the labels.
-
-    Returns
-    -------
-    dict with
-      'weights'            : the grid,
-      'labels'             : partition for every weight,
-      'silhouette'         : silhouette score for every weight,
-      'selected_weight'    : weight with the highest silhouette (label-free choice),
-      'selected_labels'    : its partition,
-      and, if y_true is given, 'ari', 'oracle_weight', 'oracle_labels'.
-    """
+    """Run kernel k-means for every weight vector on the grid and pick one."""
     if grid is None:
         grid = simplex_grid(len(grams), step)
     labels, sils = [], []
