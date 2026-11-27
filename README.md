@@ -37,13 +37,13 @@ Pass `y_true=labels` to also get the ARI of every weight and the oracle weight.
 
 | File | Contents |
 |---|---|
-| `swkmeans/diagrams.py` | Persistence diagrams: Vietoris-Rips (truncated at the enclosing radius), alpha complex |
+| `swkmeans/diagrams.py` | Persistence diagrams: Vietoris-Rips, alpha complex |
 | `swkmeans/sw_kernel.py` | SW distance, median bandwidth, SW Gram matrix per homology degree (Stage 1) |
 | `swkmeans/kernel_kmeans.py` | Kernel k-means with k-means++ initialisation (Algorithm 1) |
 | `swkmeans/weights.py` | Weight grid on the simplex, convex combination, silhouette selection (Stages 2-3) |
-| `swkmeans/alignment.py` | Centred kernel-target alignment (Section 4.6.3) |
-| `example.py` | Quick example on the circle-sphere-torus data (Section 4.2, one trial, about 20 s) |
-| `weight_significance.py` | Weight-significance experiment (Section 4.6, Tables 8-11) |
+| `swkmeans/alignment.py` | Centred kernel-target alignment  |
+| `example.py` | Quick example on the circle-sphere-torus |
+| `weight_significance.py` | Weight-significance experiment|
 
 ## Examples
 
