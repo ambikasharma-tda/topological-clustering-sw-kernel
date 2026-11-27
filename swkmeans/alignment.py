@@ -25,7 +25,7 @@ def select_weights_by_alignment(grams, y, grid, tol=1e-9):
     """Weight vector on `grid` maximising the centred alignment of K_lambda = sum_q lambda_q K^(q).
 
     Uses A(K_lambda, Y) = lambda^T b / (sqrt(lambda^T G lambda) ||Yc||) with
-    b_q = <Kc_q, Yc> and G_qj = <Kc_q, Kc_j>, so b and G are computed once (equation 22).
+    b_q = <Kc_q, Yc> and G_qj = <Kc_q, Kc_j>, so b and G are computed once.
     If several grid points attain the maximum (within `tol`), their centroid is returned.
 
     Returns (selected weight vector, alignment of each single-degree kernel).
